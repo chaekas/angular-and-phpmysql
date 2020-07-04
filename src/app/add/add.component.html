@@ -1,0 +1,48 @@
+<div class="add-main">
+
+<div class="col-md-6">
+    <h2 class="text-center">Add Students</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+
+        <div class="alert alert-danger" *ngIf="addForm.get('fName').hasError('required') && addForm.get('fName').touched">Please enter first name!</div>
+
+
+
+        <div class="form-group">
+            <label for="fName">First Name:</label>
+            <input type="text" formControlName="fName" placeholder="Student First Name" name="fName" class="form-control">
+
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('lName').hasError('maxLength') && addForm.get('lName').touched">the max length 9 character!</div>
+        
+        <div class="alert alert-danger" *ngIf="addForm.get('lName').hasError('required') && addForm.get('lName').touched">Please enter last name!</div>
+        
+        <div class="form-group">
+            <label for="lName">Last Name:</label>
+            <input type="text" formControlName="lName" placeholder="Student Last Name" name="lName" class="form-control">
+
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('email').hasError('maxLength') && addForm.get('email').touched">the max length 30 character!</div>
+
+
+        <div class="alert alert-danger" *ngIf="addForm.get('email').hasError('required') && addForm.get('email').touched">Please enter email!</div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" formControlName="email" placeholder="Students email" name="email" class="form-control">
+
+        </div>
+        <button class="btn btn-success" (click)="onSubmit()">Save</button>
+        
+
+        
+
+    </form>
+    <div>
+        <a routerLink="/view" class="btn btn-primary">View student</a>
+    </div>
+    
+</div>
+</div>
+
+
